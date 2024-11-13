@@ -33,7 +33,7 @@ def add_new_results(protein: str) -> None:
 
 def build_new_hmm(protein: str) -> None:
 	#Cluster sequences with 90% sequence identity
-	os.system(f"mmseqs easy-cluster ./queries/{protein}.fasta ./queries/{protein}.clust tmp --min-seq-id 0.9 -c 0.8")
+	os.system(f"mmseqs easy-cluster ./queries/{protein}.fasta ./queries/{protein}.clust ./queries/tmp --min-seq-id 0.9 -c 0.8")
 	#Replace the original fasta file and clean the tmp files
 	os.system("rm -R ./queries/tmp/")
 	os.system(f"mv ./queries/{protein}.clust_rep_seq.fasta ./queries/{protein}.fasta")
